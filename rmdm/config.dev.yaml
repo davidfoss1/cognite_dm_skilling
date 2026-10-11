@@ -1,6 +1,6 @@
 environment:
   name: dev
-  project: <cdf-project>
+  project: dogfooding
   validation-type: dev
   selected:
   - modules/Session1

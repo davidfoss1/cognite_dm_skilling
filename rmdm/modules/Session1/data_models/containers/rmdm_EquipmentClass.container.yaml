@@ -1,0 +1,48 @@
+space: {{ rmdm_model_space }}
+externalId: EquipmentClass
+name: RM Equipment Class
+description: Container containing the equipment classes.
+
+properties:
+  code:
+    type:
+      list: false
+      collation: ucs_basic
+      type: text
+    autoIncrement: false
+    nullable: true
+    immutable: false
+    name: Code
+    description: The code of the Equipment Class.
+  standard:
+    type:
+      list: false
+      type: text
+      collation: ucs_basic
+    autoIncrement: false
+    nullable: true
+    immutable: false
+    name: Standard
+    description: The standard for the Equipment Class.
+  failureModes:
+    type:
+      list: true
+      type: direct
+    autoIncrement: false
+    nullable: true
+    immutable: false
+    name: Failure Modes
+    description: Specifies any failure modes of the Equipment Class
+constraints:
+  cdf_cdm_CogniteDescribable:
+    require:
+      space: cdf_cdm
+      externalId: CogniteDescribable
+      type: container
+    constraintType: requires
+  codeStandardUnique:
+    properties:
+      - code
+      - standard
+    constraintType: uniqueness
+    bySpace: false

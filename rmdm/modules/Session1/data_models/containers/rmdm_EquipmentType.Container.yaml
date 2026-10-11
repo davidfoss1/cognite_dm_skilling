@@ -1,0 +1,21 @@
+space: {{ rmdm_model_space }}
+externalId: EquipmentType
+name: RM Equipment Type
+description: Container for the type of an equipment.
+properties:
+  equipmentClass:
+    type:
+      list: false
+      type: direct
+    autoIncrement: false
+    nullable: true
+    immutable: false
+    name: Equipment Class
+    description: Specifies the Equipment Class of the Equipment Type
+constraints:
+  cdf_cdm_CogniteEquipmentType:
+    require:
+      space: cdf_cdm
+      externalId: CogniteEquipmentType
+      type: container
+    constraintType: requires
