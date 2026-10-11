@@ -1,7 +1,7 @@
 space: {{ rmdm_model_space }}
 externalId: EquipmentType
 name: RM Equipment Type
-description: Container for the type of an equipment.
+description: Standard definition for a specific type or model of physical equipment.
 properties:
   equipmentClass:
     type:
@@ -10,7 +10,7 @@ properties:
     autoIncrement: false
     nullable: true
     immutable: false
-    name: Equipment Class
+    name: Class
     description: Specifies the Equipment Class of the Equipment Type
 constraints:
   cdf_cdm_CogniteEquipmentType:

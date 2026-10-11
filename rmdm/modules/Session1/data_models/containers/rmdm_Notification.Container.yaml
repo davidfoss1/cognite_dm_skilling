@@ -93,7 +93,7 @@ properties:
     nullable: true
     immutable: false
     name: Equipment
-    description: Specifies the equipments related to the Notification.
+    description: A list of physical equipment instances related to this notification
 constraints:
   cdf_idm_CogniteNotification:
     require:
