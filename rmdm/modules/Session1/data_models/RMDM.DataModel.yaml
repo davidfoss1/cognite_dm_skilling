@@ -9,6 +9,18 @@ views:
   version: {{ rmdm_model_views_version }}
   type: view
 - space: {{ rmdm_model_space }}
+  externalId: Equipment
+  version: {{ rmdm_model_views_version }}
+  type: view
+- space: {{ rmdm_model_space }}
+  externalId: EquipmentClass
+  version: {{ rmdm_model_views_version }}
+  type: view
+- space: {{ rmdm_model_space }}
+  externalId: EquipmentType
+  version: {{ rmdm_model_views_version }}
+  type: view
+- space: {{ rmdm_model_space }}
   externalId: FailureCause
   version: {{ rmdm_model_views_version }}
   type: view

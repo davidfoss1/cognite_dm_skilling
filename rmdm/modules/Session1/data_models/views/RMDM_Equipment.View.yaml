@@ -1,0 +1,133 @@
+space: {{rmdm_model_space}}
+externalId: Equipment
+name: Equipment
+description: Equipment represents physical supplies or devices.
+implements:
+  - space: cdf_cdm
+    externalId: CogniteEquipment
+    version: v1
+    type: view
+version: {{rmdm_model_views_version}}
+properties:
+  # --- Custom Properties Mapped from Equipment Container ---
+  normalOperatingState:
+    container:
+      space: {{rmdm_model_space}}
+      externalId: Equipment
+      type: container
+    containerPropertyIdentifier: normalOperatingState
+    name: Normal Operating State
+    description: The expected functional condition of an asset under standard operating parameters.
+  startDateCurrentService:
+    container:
+      space: {{rmdm_model_space}}
+      externalId: Equipment
+      type: container
+    containerPropertyIdentifier: startDateCurrentService
+    name: Start Date Current Service
+    description: The date when this equipment was placed into active service.
+  equipmentClass:
+    container:
+      space: {{rmdm_model_space}}
+      externalId: Equipment
+      type: container
+    containerPropertyIdentifier: equipmentClass
+    name: Equipment Class
+    description: Specifies the class of the equipment.
+    source:
+      space: {{rmdm_model_space}}
+      externalId: EquipmentClass
+      version: {{rmdm_model_views_version}}
+      type: view
+   # --- Inherited Direct Relations (Overridden) ---
+  asset:
+    container:
+      space: cdf_cdm
+      externalId: CogniteEquipment
+      type: container
+    containerPropertyIdentifier: asset
+    name: Asset
+    description: The asset or 'functional location' where this equipment is installed.
+    source:
+      space: {{rmdm_model_space}}
+      externalId: Asset # Points to the RMDM Asset View
+      version: {{rmdm_model_views_version}}
+      type: view
+
+  equipmentType:
+    container:
+      space: cdf_cdm
+      externalId: CogniteEquipment
+      type: container
+    containerPropertyIdentifier: equipmentType
+    name: EquipmentType
+    description: Specifies the type of the equipment. It's a direct relation to CogniteEquipmentType.
+    source:
+      space: {{rmdm_model_space}}
+      externalId: EquipmentType # Points to your custom EquipmentType View
+      version: {{rmdm_model_views_version}}
+      type: view
+
+  files:
+    container:
+      space: cdf_cdm
+      externalId: CogniteEquipment
+      type: container
+    containerPropertyIdentifier: files
+    name: Files
+    description: A list of files that this equipment is related to.
+    source:
+      space: {{rmdm_model_space}}
+      externalId: FileExt # Points to the RMDM extended File View
+      version: {{rmdm_model_views_version}}
+      type: view
+
+  # --- Reverse Direct Relations (RDRs) ---
+  timeSeries:
+    source:
+      space: {{rmdm_model_space}}
+      externalId: TimeSeriesExt
+      version: {{rmdm_model_views_version}}
+      type: view
+    through:
+      source:
+        space: {{rmdm_model_space}}
+        externalId: TimeSeriesExt
+        version: {{rmdm_model_views_version}}
+        type: view
+      identifier: equipment
+    name: Time Series
+    description: Reverse direct relation list of time series related to this equipment.
+    connectionType: multi_reverse_direct_relation
+  operations:
+    source:
+      space: {{rmdm_model_space}}
+      externalId: Operation
+      version: {{rmdm_model_views_version}}
+      type: view
+    through:
+      source:
+        space: {{rmdm_model_space}}
+        externalId: Operation
+        version: {{rmdm_model_views_version}}
+        type: view
+      identifier: equipment
+    name: Operations
+    description: Reverse direct relation list of operations related to this equipment.
+    connectionType: multi_reverse_direct_relation
+  maintenanceOrders:
+    source:
+      space: {{rmdm_model_space}}
+      externalId: MaintenanceOrder
+      version: {{rmdm_model_views_version}}
+      type: view
+    through:
+      source:
+        space: {{rmdm_model_space}}
+        externalId: MaintenanceOrder
+        version: {{rmdm_model_views_version}}
+        type: view
+      identifier: equipment
+    name: Maintenance Orders
+    description: Reverse direct relation list of maintenance orders related to this equipment.
+    connectionType: multi_reverse_direct_relation

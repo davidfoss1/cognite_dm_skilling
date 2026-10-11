@@ -32,3 +32,16 @@ properties:
       externalId: Asset
       version: {{ rmdm_model_views_version }}
       type: view
+  equipment:
+    container:
+      space: cdf_cdm
+      externalId: CogniteTimeSeries
+      type: container
+    containerPropertyIdentifier: equipment
+    name: Equipment
+    description: The equipment this relates to.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Equipment
+      version: {{ rmdm_model_views_version }}
+      type: view
